@@ -37,6 +37,7 @@ public class UserServiceImpl implements UserService {
         //DTO TO ENTITY
         log.info("Intiating dao call to save user data");
         User user = dtoToEntity(userdto);
+        user.setIsactive(AppConstants.YES);
         User saveduser = userrepo.save(user);
         //ENTITY TO DTO
         UserDto usedto = entityToDto(saveduser);
@@ -149,6 +150,7 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Integer id) {
         log.info("Intiating dao call to delete user data");
         User user = this.userrepo.findById(id).orElseThrow(() -> new ResourceNotFoundException(AppConstants.NOT_FOUND));
+        user.setIsactive(AppConstants.NO);
         userrepo.delete(user);
         log.info("Completed dao call to delete user data" + id);
 
