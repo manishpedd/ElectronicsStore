@@ -43,7 +43,7 @@ public class FileServiceImpl implements FileService {
             if (!f.exists()) {
 
                 // create folder if not created
-                f.mkdirs();
+                f.mkdir();
 
             }
 
