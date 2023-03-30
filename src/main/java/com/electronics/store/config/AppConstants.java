@@ -15,4 +15,8 @@ public class AppConstants {
     public static final String File_Extension_NotFound = "file with extension not allowed";
 
     public static final String IMAGE_UPLOADED = "Image uploaded successfully";
+
+    public static final String YES = "Active";
+
+    public static final String NO = "Not_Active";
 }
