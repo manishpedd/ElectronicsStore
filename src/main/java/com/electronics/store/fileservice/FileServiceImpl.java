@@ -26,7 +26,7 @@ public class FileServiceImpl implements FileService {
         //Generating random name for file
         String randomId = UUID.randomUUID().toString();//generates random id
 
-        String extension = randomId.concat(originalFilename.substring(originalFilename.lastIndexOf(".")));
+        String extension = originalFilename.substring(originalFilename.lastIndexOf("."));
 
         String fileNameWithExtension = randomId + extension;
         //abc.png name of image eg
@@ -34,7 +34,7 @@ public class FileServiceImpl implements FileService {
         String fullpath = path  + fileNameWithExtension; // imagepath/filename
 
         log.info("Full image path: {}", fullpath);
-        if (extension.equalsIgnoreCase("png") || extension.equalsIgnoreCase("jpg") || extension.equalsIgnoreCase("jpeg")) {
+        if (extension.equalsIgnoreCase(".png") || extension.equalsIgnoreCase(".jpg") || extension.equalsIgnoreCase(".jpeg")) {
 
 
             // create folder if not created
@@ -43,7 +43,7 @@ public class FileServiceImpl implements FileService {
             if (!f.exists()) {
 
                 // create folder if not created
-                f.mkdir();
+                f.mkdirs();
 
             }
 
@@ -52,7 +52,7 @@ public class FileServiceImpl implements FileService {
             Files.copy(file.getInputStream(), Paths.get(fullpath));
             return fileNameWithExtension;
         } else {
-            throw new BadApiResponseException(AppConstants.File_Extension_NotFound );
+            throw new BadApiResponseException("File with this " + extension + " not allowed" );
         }
 
 

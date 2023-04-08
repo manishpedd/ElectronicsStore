@@ -19,4 +19,9 @@ public class AppConstants {
     public static final String YES = "Active";
 
     public static final String NO = "Not_Active";
+
+    public static final String PRODUCT_NOT_FOUND = "Product Not Found with Id";
+
+    public static final String PRODUCT_Deleted = "Product Deleted Successfully";
+
 }

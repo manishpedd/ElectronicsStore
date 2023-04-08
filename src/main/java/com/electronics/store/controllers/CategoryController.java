@@ -26,13 +26,17 @@ public class CategoryController {
 
     @PostMapping("/createcategory")
     public ResponseEntity<CategoryDto> createCategory(@Valid @RequestBody CategoryDto categoryDto) {
+        log.info("Initiated request to create category");
         CategoryDto category = this.categoryService.createCategory(categoryDto);
+        log.info("Completed request to create category");
         return new ResponseEntity<CategoryDto>(category, HttpStatus.OK);
     }
 
     @GetMapping("/{categoryId}")
-    public ResponseEntity<CategoryDto> createCategory(@PathVariable Integer categoryId) {
+    public ResponseEntity<CategoryDto> getSingleCategory(@PathVariable Integer categoryId) {
+        log.info("Initiated request to get single category");
         CategoryDto singleCategory = this.categoryService.getSingleCategory(categoryId);
+        log.info("Completed request to get single category");
         return new ResponseEntity<CategoryDto>(singleCategory, HttpStatus.OK);
     }
 
@@ -55,7 +59,9 @@ public class CategoryController {
 
     @GetMapping("/search/{keyword}")
     public ResponseEntity<List<CategoryDto>> searchCategory(@PathVariable String keyword) {
+        log.info("Initiated request to search category");
         List<CategoryDto> categoryDtos = this.categoryService.searchCategory(keyword);
+        log.info("Completed request to search category");
         return new ResponseEntity<List<CategoryDto>>(categoryDtos, HttpStatus.OK);
 
     }
