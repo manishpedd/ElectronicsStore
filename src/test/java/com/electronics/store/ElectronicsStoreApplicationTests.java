@@ -9,7 +9,7 @@ class ElectronicsStoreApplicationTests {
 	@Test
 	void contextLoads() {
 
-		System.out.println("Testing our project");
+		System.out.println("Testing our project main springbootapplicationtests");
 	}
 
 }
